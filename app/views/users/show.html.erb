@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Tumblr token:</b>
+  <%= @user.tumblr_token %>
+</p>
+
+<p>
+  <b>Tumblr secret:</b>
+  <%= @user.tumblr_secret %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

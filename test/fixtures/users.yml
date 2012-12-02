@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  email: MyString
+  tumblr_token: MyString
+  tumblr_secret: MyString
+
+two:
+  email: MyString
+  tumblr_token: MyString
+  tumblr_secret: MyString
