@@ -1,2 +1,16 @@
-<h1>Sessions#create</h1>
-<p>Find me in app/views/sessions/create.html.erb</p>
+<h1>Mountain</h1>
+<p>Tumblr Metrics</p>
+
+<h2>SNAPSHOTS</h2>	
+<% @tumblr_account["extra"]["raw_info"]["blogs"].each do |blog| %>
+	<h3><%= link_to blog["title"], blog["url"]  %></h3>
+		<h4>FOLLOWERS</h4>
+			<p><%= number_with_delimiter(blog["followers"]) %></p>
+<% end %>
+
+		<h4>POSTS</h4>
+			<p><strong>Total:</strong> <%= number_with_delimiter(@tumblr_total_posts) %></p>
+
+		<h4>NOTES</h4>
+			<p><strong>Total:</strong> <%= number_with_delimiter(@tumblr_total_notes) %></p>
+			<p><strong>Average notes per post:</strong>  <%= @tumblr_avg_notes_per_post %></p>
