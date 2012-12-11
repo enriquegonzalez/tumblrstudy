@@ -1,0 +1,31 @@
+<h1>Listing tumblrs</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Url</th>
+    <th>Followers</th>
+    <th>Total posts</th>
+    <th>Total notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tumblrs.each do |tumblr| %>
+  <tr>
+    <td><%= tumblr.title %></td>
+    <td><%= tumblr.url %></td>
+    <td><%= tumblr.followers %></td>
+    <td><%= tumblr.total_posts %></td>
+    <td><%= tumblr.total_notes %></td>
+    <td><%= link_to 'Show', tumblr %></td>
+    <td><%= link_to 'Edit', edit_tumblr_path(tumblr) %></td>
+    <td><%= link_to 'Destroy', tumblr, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tumblr', new_tumblr_path %>

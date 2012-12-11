@@ -1,4 +1,8 @@
 TumblrToyProject::Application.routes.draw do
+  resources :tumblrs
+
+  resources :authorizations
+
   resources :users
 
  root :to => 'sessions#new'

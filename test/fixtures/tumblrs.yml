@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  url: MyString
+  followers: 1
+  total_posts: 1
+  total_notes: 1
+
+two:
+  title: MyString
+  url: MyString
+  followers: 1
+  total_posts: 1
+  total_notes: 1

@@ -16,8 +16,18 @@ class SessionsController < ApplicationController
     @tumblr_account_raw = request.env["omniauth.auth"].to_json
     @tumblr_account = JSON.parse(@tumblr_account_raw)
 
+    # raise @tumblr_account.flatten.inspect
+    #render :json => @tumblr_account
+
     # The Blog URL will be provided by the user, so this will be dynamic 
     blog_url = 'chicagohistorymuseum.tumblr.com'
+
+    # Basic Tumblr blog info Title, URL, and Followers
+    @tumblr_account["extra"]["raw_info"]["blogs"].each do |blog|
+      @tumblr_blog_title = blog["title"]
+      @tumblr_blog_url = blog["url"]
+      @tumblr_blog_followers = blog["followers"]
+    end
 
     # After authorization this is the blog account information returned from Tumblr
     @tumblr_posts_info = JSON.parse(open("http://api.tumblr.com/v2/blog/#{blog_url}/posts?api_key=#{api_key}&notes_info=true&limit=1").read)
@@ -52,4 +62,5 @@ end
 
 # http://api.tumblr.com/v2/blog/heffilumpotamus.tumblr.com/posts?api_key=TweXE95LL6PcUVMmbOic8RcYy2fkV3GLl9O3Y5pjfRrXrrR4Gk&notes_info=true&limit=2
 
-#http://api.tumblr.com/v2/blog/chicagohistorymuseum.tumblr.com/followers?api_key=TweXE95LL6PcUVMmbOic8RcYy2fkV3GLl9O3Y5pjfRrXrrR4Gk&access_token=FxxPrZrbFBnoWSgFFrv5wJ5GqPIhzVieyQSxjCVAmUhXRQbkvK
+#http://api.tumblr.com/v2/blog/chicagohistorymuseum.tumblr.com/followers?api_key=TweXE95LL6PcUVMmbOic8RcYy2fkV3GLl9O3Y5pjfRrXrrR4Gk&access_token=SUCiETaZgOWWG2Qbna8HNlm7gEjQiBW8c12jbPES95rLvdrxji&secret=T5vyWqgRqWBpKRs5wf1PXtU09UmFZ9HnIX5XLWsv6GOVvA2RwV
+

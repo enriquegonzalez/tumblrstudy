@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @tumblr.title %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @tumblr.url %>
+</p>
+
+<p>
+  <b>Followers:</b>
+  <%= @tumblr.followers %>
+</p>
+
+<p>
+  <b>Total posts:</b>
+  <%= @tumblr.total_posts %>
+</p>
+
+<p>
+  <b>Total notes:</b>
+  <%= @tumblr.total_notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_tumblr_path(@tumblr) %> |
+<%= link_to 'Back', tumblrs_path %>
